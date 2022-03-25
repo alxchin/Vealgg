@@ -3,7 +3,7 @@ import vealLogo from '../images/veal.png';
 
 const Image = () => {
   return (
-    <div class='imgLogo'>
+    <div className='imgLogo'>
       <img src={vealLogo} alt='' />
     </div>
   )

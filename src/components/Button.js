@@ -4,7 +4,7 @@ const Button = () => {
     return (
         <div className='landingRegion'> Region:
             <select>
-                <option Selected value="north america"> North America</option>
+                <option defaultValue="north america"> North America</option>
                 <option value="europe"> Europe</option>
                 <option value="south korea"> South Korea</option>
                 <option value="turkey"> Turkey</option>
