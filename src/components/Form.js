@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import styled from 'styled-components';
 
 const Input = styled.input`
@@ -23,41 +23,89 @@ const Submitbutton = styled.input`
 
 `;
 
-const Form = ({ getPlayerNames }) => { //needs to pass through parameter getPlayerName which was made in app.js in order to be used here (because here has the data)
-  const [playerSearch, setPlayerSearch] = useState('')
+class Form extends Component {
+  constructor(props) {
+    super(props)
 
-
-  const handleSearch = (event) => {
-    event.preventDefault(); //stops page from refreshing after 'event' happens
-    // displaying the searched names 
-    const playerNamesArray = playerSearch.split(',');
-    getPlayerNames(playerNamesArray); //this is how you pass it back to the app.js
-    console.log(playerNamesArray);
+    this.state = {
+      players: "",
+      region: "NA",
+    }
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  return (
-    <form onSubmit={handleSearch}>
-      <div className='landingSearch'>
-        <Input type='text' placeholder='Player 1, Player 2, Player 3...' value={playerSearch} required onChange={(event) => setPlayerSearch(event.target.value)} /> <Submitbutton type='submit' value='Search' />
-      </div>
-      <div className='landingRegion'> Region:
-        <select onChange={handleSearch} defaultValue="north america">
-          <option defaultValue> North America</option>
-          <option value="europe"> Europe</option>
-          <option value="south korea"> South Korea</option>
-          <option value="turkey"> Turkey</option>
-          <option value="japan"> Japan</option>
-          <option value="brazil"> Brazil</option>
-          <option value="latam"> Latam</option>
-          <option value="cis"> Cis</option>
-          <option value="asia pacific"> Asia Pacific</option>
-          <option value="oceania"> Oceania</option>
-          <option value="mena"> Mena</option>
-        </select>
-      </div>
-    </form>
+  playerhandler = (event) => {
+    this.setState({
+      players: event.target.value
+    })
+  }
+  regionhandler = (event) => {
+    this.setState({
+      region: event.target.value
+    })
+  }
 
-  )
+  handleSubmit = (event) => {
+    event.preventDefault()
+    console.log(this.state)
+    this.setState({
+      players: "",
+      region: "NA",
+    })
+    let playerNamesArray = this.state.players.split(',')
+    let formattedPlayerNames = []
+
+    playerNamesArray.forEach(playerName => {
+      if (!playerName.includes('#')) {
+        playerNamesArray = []
+        return alert(`Invalid user(s) found: ${playerName} missing '#'`)
+      }
+      else if (playerName.includes('#')) {
+        let checkPlayerName = playerName.split('#')
+        if ((checkPlayerName[0]).trim().length < 3) {
+          playerNamesArray = []
+          return alert(`Invalid user(s) found: ${checkPlayerName[0]}. Player name's length must be greater than 3`)
+        }
+        else if ((checkPlayerName[1]).trim().length < 3) {
+          playerNamesArray = []
+          return alert(`invalid user(s) found: ${checkPlayerName[1]} '#' length must be greater than 3`)
+        }
+        else if (((checkPlayerName[0].trim().length >= 3) && (checkPlayerName[0].trim().length <= 16)) && ((checkPlayerName[1].trim().length >= 3) && (checkPlayerName[1].trim().length <= 5))) {
+          formattedPlayerNames.push({ name: checkPlayerName[0], tag: checkPlayerName[1] })
+
+        }
+      }
+    })
+    console.log(formattedPlayerNames)
+    return formattedPlayerNames
+  }
+
+  //SKIPPY#124, JACKET#1234, BOBBY#4321
+
+
+
+  render() {
+    return (
+      <form onSubmit={this.handleSubmit}>
+        <div className='landingSearch'>
+          <Input type='text' placeholder='Player 1, Player 2, Player 3...' value={this.state.players} required onChange={this.playerhandler} /> <Submitbutton type='submit' value='Search' />
+        </div>
+        <div className='landingRegion'> Region:
+          <select onChange={this.regionhandler} defaultValue="NA" >
+            <option defaultValue required > North America </option>
+            <option value="EU"> Europe</option>
+            <option value="KR"> South Korea</option>
+            <option value="TR"> Turkey</option>
+            <option value="JP"> Japan</option>
+            <option value="BR"> Brazil</option>
+            <option value="LATAM"> Latam</option>
+            <option value="OCE"> Oceania</option>
+          </select> <br />
+        </div>
+      </form>
+
+    )
+  }
 }
 
 export default Form
