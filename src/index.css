@@ -115,9 +115,3 @@ select {
   align-items: center;
   display: relative;
 }
-
-.backgroundImage{
-  background: url('https://cdn.discordapp.com/attachments/453433004321144844/957461609331195914/ranks.PNG');  
-  background-size: cover;
-  width: 10%;
-}

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import Button from './components/Button';
 import Header from './components/Header';
 import Image from './components/Image';
 import Form from './components/Form';
@@ -39,7 +38,7 @@ function App() {
         <Header />
       </div>
       <Form getPlayerNames={showPlayerNames} />
-      <Button />
+
 
       <div className='landingInfo'>
         <div className='column'>
@@ -59,12 +58,6 @@ function App() {
           <Social />
         </div>
       </div>
-
-      <div className='backgroundImage'>
-        <h1> hello</h1>
-      </div>
-
-
     </div>
 
   )

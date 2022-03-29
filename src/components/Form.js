@@ -23,9 +23,9 @@ const Submitbutton = styled.input`
 
 `;
 
-
 const Form = ({ getPlayerNames }) => { //needs to pass through parameter getPlayerName which was made in app.js in order to be used here (because here has the data)
   const [playerSearch, setPlayerSearch] = useState('')
+
 
   const handleSearch = (event) => {
     event.preventDefault(); //stops page from refreshing after 'event' happens
@@ -39,6 +39,21 @@ const Form = ({ getPlayerNames }) => { //needs to pass through parameter getPlay
     <form onSubmit={handleSearch}>
       <div className='landingSearch'>
         <Input type='text' placeholder='Player 1, Player 2, Player 3...' value={playerSearch} required onChange={(event) => setPlayerSearch(event.target.value)} /> <Submitbutton type='submit' value='Search' />
+      </div>
+      <div className='landingRegion'> Region:
+        <select onChange={handleSearch} defaultValue="north america">
+          <option defaultValue> North America</option>
+          <option value="europe"> Europe</option>
+          <option value="south korea"> South Korea</option>
+          <option value="turkey"> Turkey</option>
+          <option value="japan"> Japan</option>
+          <option value="brazil"> Brazil</option>
+          <option value="latam"> Latam</option>
+          <option value="cis"> Cis</option>
+          <option value="asia pacific"> Asia Pacific</option>
+          <option value="oceania"> Oceania</option>
+          <option value="mena"> Mena</option>
+        </select>
       </div>
     </form>
 
