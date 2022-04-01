@@ -46,6 +46,8 @@ class Form extends Component {
   }
 
   handleSubmit = (event) => {
+
+
     event.preventDefault()
     console.log(this.state)
     this.setState({
@@ -71,18 +73,17 @@ class Form extends Component {
           return alert(`invalid user(s) found: ${checkPlayerName[1]} '#' length must be greater than 3`)
         }
         else if (((checkPlayerName[0].trim().length >= 3) && (checkPlayerName[0].trim().length <= 16)) && ((checkPlayerName[1].trim().length >= 3) && (checkPlayerName[1].trim().length <= 5))) {
-          formattedPlayerNames.push({ name: checkPlayerName[0], tag: checkPlayerName[1] })
-
+          formattedPlayerNames.push({ name: checkPlayerName[0].trim(), tag: checkPlayerName[1].trim() })
         }
       }
     })
     console.log(formattedPlayerNames)
+    fetch("http://localhost:3001/search", { headers: { 'Content-Type': 'application/json' }, method: 'POST', body: JSON.stringify(formattedPlayerNames) })
     return formattedPlayerNames
+
   }
 
   //SKIPPY#124, JACKET#1234, BOBBY#4321
-
-
 
   render() {
     return (
