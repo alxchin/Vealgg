@@ -34,6 +34,7 @@ function App() {
       </div>
       <Form />
       <div className='landingInfo'>
+
         <div className='column'>
           <h4> Chart the Climb</h4>
           <span>"Create leaderboards with your friends to visualize the ranked season" </span>
@@ -42,8 +43,7 @@ function App() {
         <div className='column'>
           <h4> Track Your Daily Progress</h4>
           <span> Keep tabs on today's RR changes and win-loss record at a glance.</span>
-          <div> <img src="./images/ranks.PNG" alt="" className="image3" />
-          </div>
+          <div> <img src="./images/ranks.PNG" alt="" className="image3" /> </div>
         </div>
         <div className="dockBar">
           <Social />
