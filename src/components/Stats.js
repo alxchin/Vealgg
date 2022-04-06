@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Scatter, Line } from 'react-chartjs-2';
 import { Chart as ChartJS, registerables } from 'chart.js';
 import { useLocation } from 'react-router-dom';
+import 'chartjs-adapter-date-fns';
 ChartJS.register(...registerables);
 
 const Graph = styled.div`
@@ -16,12 +17,19 @@ const Stats = () => {
     const { state } = useLocation();
     console.log(state)
 
+    function removeTime(date = new Date()) {
+        return new Date(
+            date.getFullYear(),
+            date.getMonth(),
+            date.getDate()
+        );
+    }
 
     let playersRR = [];
     for (let i = 0; i < state.players.length; i++) {
         let playersArray = []
         for (let j = 0; j < state.players[i].timeSeriesRR.length; j++) {
-            playersArray.push({ y: state.players[i].timeSeriesRR[j]['rr'], x: new Date(state.players[i].timeSeriesRR[j]['date']) })
+            playersArray.push({ y: state.players[i].timeSeriesRR[j]['rr'], x: removeTime(new Date(state.players[i].timeSeriesRR[j]['date'])) })
         }
         playersRR.push(playersArray)
     }
@@ -57,8 +65,11 @@ const Stats = () => {
 
     const chartOptions = {
         scales: {
-            x: {
+            xAxis: {
                 type: 'time',
+                time: {
+                    unit: 'month'
+                }
             }
         }
     }
