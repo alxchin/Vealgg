@@ -131,6 +131,7 @@ select {
     ". . .";
   margin: 3% 25%;
   color: white;
+  justify-items: center;
 }
 
 .column {

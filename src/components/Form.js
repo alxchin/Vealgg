@@ -5,15 +5,15 @@ import { useNavigate, Link } from 'react-router-dom';
 
 
 const Input = styled.input`
-padding: 0.8em;
-margin: 0.5em;
-color: black;
-background: papayawhip;
-border: none;
-border-radius: 3px;
-position: relative;
-width: 80%;
-font-size: 0.8em
+  padding: 0.8em;
+  margin: 0.5em;
+  background: transparent;
+  position: relative;
+  width: 80%;
+  font-size: 0.8em;
+  border: 1px solid;
+  border-image-source: linear-gradient(white, grey) 1;  
+  color: white;
 `;
 
 const Submitbutton = styled.input`
@@ -75,7 +75,8 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='landingSearch'>
-        <Input type='text' placeholder='Player 1, Player 2, Player 3...' value={players} required onChange={(e) => setPlayers(e.target.value)} /> <Submitbutton type='submit' value='Search'></Submitbutton>
+        <Input type='text' placeholder='Player 1, Player 2, Player 3...' value={players} required onChange={(e) => setPlayers(e.target.value)} />
+        <Submitbutton type='submit' value='Search'></Submitbutton>
       </div>
       <div className='landingRegion'> Region:
         <select onChange={(e) => setRegion(e.target.value)} defaultValue="NA" >

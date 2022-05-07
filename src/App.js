@@ -42,21 +42,21 @@ function App() {
 
         <div className='column'>
           <img src={jettIcon} alt="" />
-          <h4 className='ValorantTitleText'> Chart the Climb</h4>
-          <span className='ValorantTitleText'>"Create leaderboards with your friends to visualize the ranked season" </span>
+          <h4 className='ValorantTitleText'>Chart the Climb</h4>
+          <span>Create leaderboards with your friends to visualize the ranked season</span>
         </div>
         <div className='column'>
           <img src={cypherIcon} alt="" />
-          <h4 className='ValorantTitleText'> Track Your Daily Progress</h4>
-          <span className='ValorantTitleText'> Keep tabs on today's RR changes and win-loss record at a glance.</span>
+          <h4 className='ValorantTitleText'>Progress Stats</h4>
+          <span>Track your daily progress to improve your gameplay</span>
         </div>
         <div className='column'>
           <img src={sovaIcon} alt="" />
-          <h4 className='ValorantTitleText'> Track Your Daily Progress</h4>
-          <span className='ValorantTitleText'> Keep tabs on today's RR changes and win-loss record at a glance.</span>
+          <h4 className='ValorantTitleText'>Track Changes</h4>
+          <span>Keep tabs on RR changes and win-loss records</span>
         </div>
         <div className="dockBar">
-          <Social />
+          {/* <Social /> */}
         </div>
       </div>
 
