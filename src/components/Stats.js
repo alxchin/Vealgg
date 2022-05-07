@@ -17,21 +17,14 @@ const Stats = () => {
     const { state } = useLocation();
     console.log(state)
 
-    function removeTime(date = new Date()) {
-        return new Date(
-            date.getFullYear(),
-            date.getMonth(),
-            date.getDate()
-        );
-    }
 
-    let playersRR = [];
+    let playersRR = {};
     for (let i = 0; i < state.players.length; i++) {
         let playersArray = []
         for (let j = 0; j < state.players[i].timeSeriesRR.length; j++) {
-            playersArray.push({ y: state.players[i].timeSeriesRR[j]['rr'], x: removeTime(new Date(state.players[i].timeSeriesRR[j]['date'])) })
+            playersArray.push({ y: state.players[i].timeSeriesRR[j]['rr'], x: new Date(state.players[i].timeSeriesRR[j]['date']) })
         }
-        playersRR.push(playersArray)
+        playersRR[state.players[i].name] = playersArray
     }
 
     console.log(playersRR)
@@ -42,22 +35,28 @@ const Stats = () => {
     const label = ['player1', 'player2', 'player3']
     const lineColors = ['rgb(255,99,132)', 'rgb(5,19,75)', 'rgb(50,120,22)', 'rgb(82,95,42)', 'rgb(105,100,20)']
 
-    const datasets = playersRR.map((data, index) => {
-        return {
-            label: label[index],
-            borderColor: lineColors[index],
-            backgroundColor: lineColors[index],
-            data: data,
-            height: 300,
-            width: 300,
-            options: {
-                maintainAspectRatio: false,
-            },
+    var count = 0
+    const datasets = generateData()
+    console.log(datasets)
+    function generateData() {
+        for (const key in playersRR) {
+            count += 1
+            return {
+                label: key,
+                borderColor: lineColors[count - 1],
+                backgroundColor: lineColors[count - 1],
+                data: playersRR[key],
+                height: 300,
+                width: 300,
+                options: {
+                    maintainAspectRatio: false,
+                },
 
-            showLine: true,
-            fill: false,
+                showLine: true,
+                fill: false,
+            }
         }
-    })
+    }
 
     const data = {
         datasets,

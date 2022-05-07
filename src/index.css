@@ -1,3 +1,8 @@
+@font-face {
+  font-family: valorant;
+  src: url('./fonts/valorant.ttf');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,6 +17,17 @@ code {
     monospace;
 }
 
+.ValorantTitleText {
+  font-family: valorant;
+}
+
+.backgroundEllipse {
+  background-image: url('./images/ellipse.png');
+  background-repeat: no-repeat;
+  background-position: top;
+  min-height: 700px;
+}
+
 .backgroundPage {
   min-width: 100%;
   min-height: 937px;
@@ -21,7 +37,7 @@ code {
   flex-direction: column;
   text-align: center;
   background-size: 100% 100%;
-  
+
 }
 
 .landingPage {
@@ -29,7 +45,6 @@ code {
   margin: auto;
   overflow: auto;
   min-height: 100px;
-  border: 2px solid #212529;
   padding: 50px;
   border-radius: 5px;
   text-align: center;
@@ -40,39 +55,41 @@ img {
   width: 90px;
   object-fit: contain;
 
- }
- .imgLogo {
+}
+
+.imgLogo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-  margin-top:5em;
- }
+  margin-top: 5em;
+}
 
 #image2 {
-  width:75%;
-  text-align:center;
-  padding:10px;
-}
-.image3 {
-  width:90%;
-  text-align:center;
-  padding:10px;
+  width: 75%;
+  text-align: center;
+  padding: 10px;
 }
 
- .landingSearch {
+.image3 {
+  width: 90%;
+  text-align: center;
+  padding: 10px;
+}
+
+.landingSearch {
   font-size: 1.5em;
   max-width: 50%;
   max-height: 0vh;
   margin-left: 24%;
   padding: 50px;
   border-radius: 5px;
-  margin-top:0%;
+  margin-top: 0%;
   display: flex;
   align-items: center;
- }
+}
 
-.landingRegion{
+.landingRegion {
   font-size: 1.5em;
   max-width: 1%;
   max-height: 1vh;
@@ -98,13 +115,24 @@ select {
 }
 
 .landingInfo {
-  border: 1px solid #212529;
   height: 40%;
-  margin: 3% 25% ;
-  align-content: space-between;
+  margin: 3% 25%;
+  align-items: space-between;
   color: #949ba1;
 
 }
+
+.landingInfoContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". . .";
+  margin: 3% 25%;
+  color: white;
+}
+
 .column {
   float: left;
   width: 50%;

@@ -3,6 +3,9 @@ import Header from './components/Header';
 import Image from './components/Image';
 import Form from './components/Form';
 import Social from './components/Social';
+import cypherIcon from './images/cypherIcon.png'
+import jettIcon from './images/jettIcon.png'
+import sovaIcon from './images/sovaIcon.png'
 
 function App() {
 
@@ -27,28 +30,36 @@ function App() {
   //{!apiData ? "Loading..." : apiData.message}  
 
   return (
-    < div className='backgroundPage' >
-      <div className='landingPage'>
-        <Image />
-        <Header />
+    <div className='backgroundPage' >
+      <div className='backgroundEllipse'>
+        <div className='landingPage'>
+          <Image />
+          <Header />
+        </div>
+        <Form />
       </div>
-      <Form />
-      <div className='landingInfo'>
+      <div className='landingInfoContainer'>
 
         <div className='column'>
-          <h4> Chart the Climb</h4>
-          <span>"Create leaderboards with your friends to visualize the ranked season" </span>
-          <div><img src="./images/phone.PNG" alt="" id="image2" /></div>
+          <img src={jettIcon} alt="" />
+          <h4 className='ValorantTitleText'> Chart the Climb</h4>
+          <span className='ValorantTitleText'>"Create leaderboards with your friends to visualize the ranked season" </span>
         </div>
         <div className='column'>
-          <h4> Track Your Daily Progress</h4>
-          <span> Keep tabs on today's RR changes and win-loss record at a glance.</span>
-          <div> <img src="./images/ranks.PNG" alt="" className="image3" /> </div>
+          <img src={cypherIcon} alt="" />
+          <h4 className='ValorantTitleText'> Track Your Daily Progress</h4>
+          <span className='ValorantTitleText'> Keep tabs on today's RR changes and win-loss record at a glance.</span>
+        </div>
+        <div className='column'>
+          <img src={sovaIcon} alt="" />
+          <h4 className='ValorantTitleText'> Track Your Daily Progress</h4>
+          <span className='ValorantTitleText'> Keep tabs on today's RR changes and win-loss record at a glance.</span>
         </div>
         <div className="dockBar">
           <Social />
         </div>
       </div>
+
     </div>
 
   )
