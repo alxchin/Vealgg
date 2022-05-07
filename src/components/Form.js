@@ -14,15 +14,19 @@ const Input = styled.input`
   border: 1px solid;
   border-image-source: linear-gradient(white, grey) 1;  
   color: white;
-`;
 
+`;
 const Submitbutton = styled.input`
-  margin: 0em;
-  color: black;
-  background: papayawhip;
-  border: none;
-  border-radius: 5px;
-  padding: 1.5em 2em;
+
+  color: white;
+  display:flex;
+  justify-content:center;
+  background: transparent;
+  border: 1px solid;
+  border-image-source: linear-gradient(white, grey) 1;  
+  height: 46px;
+  width: 135px;
+
 `
 
 const Form = () => {
