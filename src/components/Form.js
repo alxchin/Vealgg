@@ -89,7 +89,6 @@ const Form = () => {
   function handleSubmit(e) {
     e.preventDefault()
     let formattedPlayerNames = validatePlayerNames()
-    console.log(formattedPlayerNames)
     if (formattedPlayerNames.length) {
       fetchPlayerStats(formattedPlayerNames).then((data) => navigate('/stats', { state: data }))
     }
