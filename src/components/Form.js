@@ -49,7 +49,6 @@ const Submitbutton = styled.input`
 
 const Form = () => {
   const [players, setPlayers] = useState('');
-  const [region, setRegion] = useState('NA');
 
   const navigate = useNavigate()
 
@@ -63,7 +62,8 @@ const Form = () => {
       })
   }
 
-  function validatePlayerNames(formattedPlayerNames) {
+  function validatePlayerNames() {
+    let formattedPlayerNames = []
     let playerNamesArray = players.split(',')
     playerNamesArray.forEach(playerName => {
       if (!playerName.includes('#')) {
@@ -88,8 +88,8 @@ const Form = () => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    let formattedPlayerNames = []
-    validatePlayerNames(formattedPlayerNames)
+    let formattedPlayerNames = validatePlayerNames()
+    console.log(formattedPlayerNames)
     if (formattedPlayerNames.length) {
       fetchPlayerStats(formattedPlayerNames).then((data) => navigate('/stats', { state: data }))
     }
@@ -101,7 +101,7 @@ const Form = () => {
           <SearchIcon src={searchIcon} alt="" />
           <Input type='text' value={players} required onChange={(e) => setPlayers(e.target.value)} />
         </SearchBar>
-        <Submitbutton type='submit' value='Search'></Submitbutton>
+        <Submitbutton type='submit' value='Search' />
       </div>
     </form>
 

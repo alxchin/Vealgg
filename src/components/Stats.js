@@ -79,7 +79,6 @@ const Stats = () => {
         <>
             <Graph>
                 <Scatter data={data} options={chartOptions} />
-
             </Graph>
         </>
     )
