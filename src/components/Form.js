@@ -33,12 +33,18 @@ const Input = styled.input`
 `
 
 const Submitbutton = styled.input`
-  margin: 0em;
-  color: black;
-  background: papayawhip;
-  border: none;
-  border-radius: 5px;
-  padding: 1.5em 2em;
+  padding: unset;
+  color: white;
+  display:flex;
+  justify-content:center;
+  background: transparent;
+  border: 1px solid;
+  border-image: linear-gradient(to top, rgba(255,255,255,0.75), rgba(255,255,255,0.5919)) 1;
+  height: 46px;
+  width: 135px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 18px;
 `
 
 const Form = () => {
