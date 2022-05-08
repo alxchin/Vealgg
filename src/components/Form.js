@@ -7,7 +7,7 @@ import searchIcon from '../images/searchIcon.png';
 const SearchBar = styled.div`
   background: transparent;
   border: 1px solid;
-  border-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4)) 1;
+  border-image: linear-gradient(to top, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.4)) 1;
   height: 44px;
   position: relative;
   width: 80%;
@@ -39,7 +39,7 @@ const Submitbutton = styled.input`
   justify-content:center;
   background: transparent;
   border: 1px solid;
-  border-image: linear-gradient(to top, rgba(255,255,255,0.75), rgba(255,255,255,0.5919)) 1;
+  border-image: linear-gradient(to top, rgba(255,255,255,0.75), rgba(255,255,255,0.4)) 1;
   height: 46px;
   width: 135px;
   font-family: Roboto;
