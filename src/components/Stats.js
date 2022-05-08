@@ -15,7 +15,6 @@ const Graph = styled.div`
 const Stats = () => {
 
     const { state } = useLocation();
-    console.log(state)
 
 
     let playersRR = {};
@@ -27,7 +26,6 @@ const Stats = () => {
         playersRR[state.players[i].name] = playersArray
     }
 
-    console.log(playersRR)
 
 
 
@@ -37,11 +35,13 @@ const Stats = () => {
 
     var count = 0
     const datasets = generateData()
-    console.log(datasets)
     function generateData() {
+        let datasets = []
         for (const key in playersRR) {
             count += 1
-            return {
+            console.log(key)
+            console.log(playersRR[key])
+            datasets.push({
                 label: key,
                 borderColor: lineColors[count - 1],
                 backgroundColor: lineColors[count - 1],
@@ -54,10 +54,10 @@ const Stats = () => {
 
                 showLine: true,
                 fill: false,
-            }
+            })
         }
+        return datasets
     }
-
     const data = {
         datasets,
     };
@@ -79,7 +79,6 @@ const Stats = () => {
         <>
             <Graph>
                 <Scatter data={data} options={chartOptions} />
-
             </Graph>
         </>
     )
