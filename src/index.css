@@ -37,7 +37,6 @@ code {
   flex-direction: column;
   text-align: center;
   background-size: 100% 100%;
-
 }
 
 .landingPage {
@@ -54,7 +53,6 @@ img {
   height: auto;
   width: 90px;
   object-fit: contain;
-
 }
 
 .imgLogo {
@@ -75,6 +73,15 @@ img {
   width: 90%;
   text-align: center;
   padding: 10px;
+}
+
+.searchContainer {
+  display: grid;
+  grid-template-columns: 0.1fr 1.9fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". .";
 }
 
 .landingSearch {
