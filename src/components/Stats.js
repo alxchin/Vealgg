@@ -27,13 +27,6 @@ const Stats = () => {
     }
 
 
-
-
-
-    const lineColors = ['rgb(255,99,132)', 'rgb(5,19,75)', 'rgb(50,120,22)', 'rgb(82,95,42)', 'rgb(105,100,20)']
-
-
-    const datasets = generateData()
     function generateData() {
         let datasets = []
         var variations = 0
@@ -56,6 +49,10 @@ const Stats = () => {
         }
         return datasets
     }
+
+    const lineColors = ['rgb(255,99,132)', 'rgb(5,19,75)', 'rgb(50,120,22)', 'rgb(82,95,42)', 'rgb(105,100,20)']
+    const datasets = generateData()
+
     const data = {
         datasets,
     };
