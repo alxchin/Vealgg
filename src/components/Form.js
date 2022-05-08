@@ -1,21 +1,37 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import { useNavigate, Link } from 'react-router-dom';
+import searchIcon from '../images/searchIcon.png';
 
 
-
-const Input = styled.input`
-  padding: 0.8em;
-  margin: 0.5em;
+const SearchBar = styled.div`
   background: transparent;
+  border: 1px solid;
+  border-image: linear-gradient(to top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0.4)) 1;
+  height: 44px;
   position: relative;
   width: 80%;
-  font-size: 0.8em;
-  border: 1px solid;
-  border-image-source: linear-gradient(white, grey) 1;  
+  margin-right: 10px;
   color: white;
+`
+const SearchIcon = styled.img`
+  width: 23px;
+  height: auto;
+  place-self: center;
+  margin: 0px 10px;
+`
+const Input = styled.input`
+  width: 100%;
+  background: transparent;
+  position: relative;
+  font-size: 0.8em;
+  border: none;
+  color: white;
+  height: 100%;
+  outline: none;
+  padding: 0;
+`
 
-`;
 const Submitbutton = styled.input`
   padding: unset;
   color: white;
@@ -81,7 +97,10 @@ const Form = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='landingSearch'>
-        <Input type='text' placeholder='Player 1, Player 2, Player 3...' value={players} required onChange={(e) => setPlayers(e.target.value)} />
+        <SearchBar className='searchContainer'>
+          <SearchIcon src={searchIcon} alt="" />
+          <Input type='text' value={players} required onChange={(e) => setPlayers(e.target.value)} />
+        </SearchBar>
         <Submitbutton type='submit' value='Search'></Submitbutton>
       </div>
       <div className='landingRegion'> Region:
