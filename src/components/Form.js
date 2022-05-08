@@ -103,18 +103,6 @@ const Form = () => {
         </SearchBar>
         <Submitbutton type='submit' value='Search'></Submitbutton>
       </div>
-      <div className='landingRegion'> Region:
-        <select onChange={(e) => setRegion(e.target.value)} defaultValue="NA" >
-          <option defaultValue required > North America </option>
-          <option value="EU"> Europe</option>
-          <option value="KR"> South Korea</option>
-          <option value="TR"> Turkey</option>
-          <option value="JP"> Japan</option>
-          <option value="BR"> Brazil</option>
-          <option value="LATAM"> Latam</option>
-          <option value="OCE"> Oceania</option>
-        </select> <br />
-      </div>
     </form>
 
   )
