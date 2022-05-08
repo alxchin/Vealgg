@@ -30,21 +30,19 @@ const Stats = () => {
 
 
 
-    const label = ['player1', 'player2', 'player3']
     const lineColors = ['rgb(255,99,132)', 'rgb(5,19,75)', 'rgb(50,120,22)', 'rgb(82,95,42)', 'rgb(105,100,20)']
 
-    var count = 0
+
     const datasets = generateData()
     function generateData() {
         let datasets = []
+        var variations = 0
         for (const key in playersRR) {
-            count += 1
-            console.log(key)
-            console.log(playersRR[key])
+            variations += 1
             datasets.push({
                 label: key,
-                borderColor: lineColors[count - 1],
-                backgroundColor: lineColors[count - 1],
+                borderColor: lineColors[variations - 1],
+                backgroundColor: lineColors[variations - 1],
                 data: playersRR[key],
                 height: 300,
                 width: 300,
